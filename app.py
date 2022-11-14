@@ -4,7 +4,7 @@ from joblib import load
 
 
 app = Flask(__name__)
-model = load('ridge.joblib') 
+model = load('xgb.joblib') 
 
 @app.route('/')
 def home():
