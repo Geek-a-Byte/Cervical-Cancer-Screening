@@ -4,16 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Cervical Cancer Detection</title>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsz0dtP2rWHMS5Gkwt5TJ29IaXIrgoSOs&libraries=places"></script>
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <style>
         @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
@@ -100,7 +95,7 @@
         'Schiller',
         'Citology',
         'Age_bin', -->
-        <form action="{{ url_for('/predict')}}" method="post">
+        <form action="{{ url_for('predict')}}" method="post">
             <p>যৌনসঙ্গীর সংখ্যা (ইংরেজিতে সংখ্যাটি লিখুন)</p><input type="text" name="num_sex_partner" id="num_sex_partner"
                 required="required" />
             <p>গর্ভধারণের সংখ্যা (ইংরেজিতে সংখ্যাটি লিখুন)</p><input type="text" name="num_preg" id="num_preg" required="required" />
