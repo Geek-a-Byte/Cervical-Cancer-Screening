@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cervical Cancer Detection</title>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsz0dtP2rWHMS5Gkwt5TJ29IaXIrgoSOs&libraries=places"></script>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+</head>
+
+<body>
+    <div class="login">
+        <h1>জরায়ু ক্যান্সার স্ক্রিনিং</h1>
+        <!-- Main Input For Receiving Query to our ML -->
+        <!-- 'Number of sexual partners',
+        'Num of pregnancies',
+        'Smokes',
+        'Hormonal Contraceptives',
+        'STDs:vulvo-perineal condylomatosis',
+        'STDs:genital herpes',
+        'STDs:HIV',
+        'Hinselmann',
+        'Schiller',
+        'Citology',
+        'Age_bin', -->
+        <form action="{{ url_for('predict')}}" method="post">
+            <p>যৌনসঙ্গীর সংখ্যা (ইংরেজিতে সংখ্যাটি লিখুন)</p><input type="text" name="num_sex_partner"
+                id="num_sex_partner" required="required" />
+            <p>গর্ভধারণের সংখ্যা (ইংরেজিতে সংখ্যাটি লিখুন)</p><input type="text" name="num_preg" id="num_preg"
+                required="required" />
+            <p>আপনি কি ধূমপান করেন?</p>
+              <input type="radio" id="Smokes" name="Smokes" value="0">
+              <label for="Smokes">হ্যাঁ</label>
+              <input type="radio" id="Smokes" name="Smokes" value="1">
+              <label for="Smokes">না</label>
+
+            <p>আপনি কি জন্মনিরোধক হরমোন গ্রহণ করেন? উত্তর হ্যাঁ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p>
+            <input type="radio" id="horm_cont" name="horm_cont" value="0">
+              <label for="horm_cont">হ্যাঁ</label>
+              <input type="radio" id="horm_cont" name="horm_cont" value="1">
+              <label for="horm_cont">না</label>
+            <p>আপনার কি পূর্বে এসটিডি (ভলভো - পেরিনিয়াল কোনডাইলোমেটোসিস) নির্ণীত হয়েছে?</p>
+            <input type="radio" id="vulvo" name="vulvo" value="0">
+              <label for="horm_cont">হ্যাঁ</label>
+              <input type="radio" id="vulvo" name="vulvo" value="1">
+              <label for="horm_cont">না</label>
+            <p>আপনার কি পূর্বে জেনিটাল হারপিস নির্ণীত হয়েছে? উত্তর হ্যাঁ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input
+                type="text" name="herpes" id="herpes" required="required" />
+            <p>আপনার কি পূর্বে এইচআইভি নির্ণীত হয়েছে? উত্তর হ্যাঁ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input type="text"
+                name="hiv" id="hiv" required="required" />
+            <p>কলপোস্কোপির(হিন্সেলম্যান) ফলাফল পজিটিভ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input type="text"
+                name="hinselmann" id="hinselmann" required="required" />
+            <p>শিলার আয়োডিন পরীক্ষার ফলাফল পজিটিভ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input type="text" name="Schiller"
+                id="Schiller" required="required" />
+            <p>প্যাপ স্মিয়ার পরীক্ষার ফলাফল পজিটিভ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input type="text" name="Citology"
+                id="Citology" required="required" />
+            <p>বয়স * (ইংরেজিতে সংখ্যাটি লিখুন)</p><input type="text" name="Age_bin" id="Age_bin" required="required" />
+            <br><br>
+            <button type="submit" class="btn btn-primary">ফলাফল দেখুন</button>
+            <div class="result" style="height:auto; margin: 25px">
+                {{ prediction_text }}
+            </div>
+        </form>
+        <br>
+        <br>
+    </div>
+</body>
+
+</html>
