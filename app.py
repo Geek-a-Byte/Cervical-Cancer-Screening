@@ -26,7 +26,7 @@ def predict():
     print(prediction)
     if(prediction[0]==0):
         result = "অভিনন্দন, আপনি সারভিকাল ক্যান্সারে আক্রান্ত হওয়ার ঝুঁকিতে নেই।"
-    return render_template('./index.html', prediction_text='crimes will be {}'.format(result))
+    return render_template('./index.html', prediction_text='{}'.format(result))
 
 if __name__ == "__main__":
     app.run(debug=True)

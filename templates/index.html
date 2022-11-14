@@ -98,33 +98,62 @@
         <form action="{{ url_for('predict')}}" method="post">
             <p>যৌনসঙ্গীর সংখ্যা (ইংরেজিতে সংখ্যাটি লিখুন)</p><input type="text" name="num_sex_partner" id="num_sex_partner"
                 required="required" />
-            <p>গর্ভধারণের সংখ্যা (ইংরেজিতে সংখ্যাটি লিখুন)</p><input type="text" name="num_preg" id="num_preg" required="required" />
+            <p>গর্ভধারণের সংখ্যা (ইংরেজিতে সংখ্যাটি লিখুন)</p><input type="text" name="num_preg" id="num_preg"
+                required="required" />
             <p>আপনি কি ধূমপান করেন?</p>
               <input type="radio" id="Smokes" name="Smokes" value="0">
               <label for="Smokes">হ্যাঁ</label>
               <input type="radio" id="Smokes" name="Smokes" value="1">
               <label for="Smokes">না</label>
-            
-            <p>আপনি কি জন্মনিরোধক হরমোন গ্রহণ করেন? উত্তর হ্যাঁ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p>
-              <input type="radio" id="horm_cont" name="horm_cont" value="0">
+
+            <p>আপনি কি জন্মনিরোধক হরমোন গ্রহণ করেন?</p>
+            <input type="radio" id="horm_cont" name="horm_cont" value="0">
               <label for="horm_cont">হ্যাঁ</label>
               <input type="radio" id="horm_cont" name="horm_cont" value="1">
               <label for="horm_cont">না</label>
+
             <p>আপনার কি পূর্বে এসটিডি (ভলভো - পেরিনিয়াল কোনডাইলোমেটোসিস) নির্ণীত হয়েছে?</p>
-              <input type="radio" id="vulvo" name="vulvo" value="0">
+            <input type="radio" id="vulvo" name="vulvo" value="0">
               <label for="horm_cont">হ্যাঁ</label>
               <input type="radio" id="vulvo" name="vulvo" value="1">
               <label for="horm_cont">না</label>
-            <p>আপনার কি পূর্বে জেনিটাল হারপিস নির্ণীত হয়েছে? উত্তর হ্যাঁ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input type="text" name="herpes" id="herpes" required="required" />
-            <p>আপনার কি পূর্বে এইচআইভি নির্ণীত হয়েছে? উত্তর হ্যাঁ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input type="text" name="hiv" id="hiv" required="required" />
-            <p>কলপোস্কোপির(হিন্সেলম্যান) ফলাফল পজিটিভ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input type="text" name="hinselmann" id="hinselmann" required="required" />
-            <p>শিলার আয়োডিন পরীক্ষার ফলাফল পজিটিভ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input type="text" name="Schiller" id="Schiller" required="required" />
-            <p>প্যাপ স্মিয়ার পরীক্ষার ফলাফল পজিটিভ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p><input type="text" name="Citology" id="Citology" required="required" />
-            <p>বয়স * (ইংরেজিতে সংখ্যাটি লিখুন)</p><input type="text" name="Age_bin" id="Age_bin" required="required" />
+
+            <p>আপনার কি পূর্বে জেনিটাল হারপিস নির্ণীত হয়েছে?</p>
+            <input type="radio" id="herpes" name="herpes" value="0">
+              <label for="herpes">হ্যাঁ</label>
+              <input type="radio" id="herpes" name="herpes" value="1">
+              <label for="herpes">না</label>
+
+            <p>আপনার কি পূর্বে এইচআইভি নির্ণীত হয়েছে? উত্তর হ্যাঁ হলে ১ চাপুন, অন্যথায় ০ চাপুন</p>
+            <input type="radio" id="hiv" name="hiv" value="0">
+              <label for="hiv">হ্যাঁ</label>
+              <input type="radio" id="hiv" name="hiv" value="1">
+              <label for="hiv">না</label>
+
+            <p>কলপোস্কোপির(হিন্সেলম্যান) ফলাফল</p>
+            <input type="radio" id="hinselmann" name="hinselmann" value="0">
+              <label for="hinselmann">পজিটিভ</label>
+              <input type="radio" id="hinselmann" name="hinselmann" value="1">
+              <label for="hinselmann">নেগেটিভ</label>
+
+            <p>শিলার আয়োডিন পরীক্ষার ফলাফল</p>
+            <input type="radio" id="Schiller" name="Schiller" value="0">
+              <label for="Schiller">পজিটিভ</label>
+              <input type="radio" id="Schiller" name="Schiller" value="1">
+              <label for="Schiller">নেগেটিভ</label>
+
+            <p>প্যাপ স্মিয়ার পরীক্ষার ফলাফল</p>
+            <input type="radio" id="Citology" name="Citology" value="0">
+              <label for="Citology">পজিটিভ</label>
+              <input type="radio" id="Citology" name="Citology" value="1">
+              <label for="Citology">নেগেটিভ</label>
+
+            <p>বয়স * (ইংরেজিতে সংখ্যাটি লিখুন)</p>
+            <input type="text" name="Age_bin" id="Age_bin" required="required" />
             <br><br>
-            <button type="submit" class="btn-primary">ফলাফল দেখুন</button>
+            <button type="submit" class="btn btn-primary">ফলাফল দেখুন</button>
             <div class="result" style="height:auto; margin: 25px">
-            {{ prediction_text }}
+                {{ prediction_text }}
             </div>
         </form>
         <br>
